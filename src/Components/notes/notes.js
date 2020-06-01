@@ -1,10 +1,13 @@
 import React from 'react';
-import Store from '/Users/Jones/notfulappfull/src/Store';
+import { useContext } from 'react';
 import {useParams} from "react-router-dom"
+import {FolderNoteContext} from "../../FolderNoteContext"
 
 export default function Notes() {
+    const value = useContext(FolderNoteContext);
     const {notesID} = useParams();
-    const note = Store.notes.map(note =>{
+    // console.log(value.notes)
+    const note = value.notes.map(note =>{
         if(note.folderId === notesID){
             return (
             <div style={notediv1}>
