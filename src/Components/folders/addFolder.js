@@ -68,7 +68,7 @@ class AddFolder extends Component {
     }
 
     render() {
-        console.log(this.state.folder.id)
+        // console.log(this.state.folder)
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>

@@ -74,7 +74,6 @@ import { FolderNoteContext } from "./FolderNoteContext"
               <h3 key={item.id}>
                   <Link to={`/notes/${item.id}`}>{item.name}</Link>
               </h3>
-              <button>delete</button>
           </div>
         ))
 
