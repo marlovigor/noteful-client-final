@@ -8,6 +8,7 @@ export const FolderNoteContext = React.createContext({
     notes: [],
     addFolder: () => { },
     addNotes: () => { },
+    deletNote:() => { }
 
 });
 

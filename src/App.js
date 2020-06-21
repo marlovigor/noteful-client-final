@@ -49,6 +49,13 @@ import { FolderNoteContext } from "./FolderNoteContext"
       this.setState({notes: [...this.state.notes, note]})
     }
 
+    handleDeleteNote = (noteId) => {
+        this.setState({
+          ...this.state,
+          notes: this.state.notes.filter((note) => note.id !== +noteId),
+        });
+      };
+
 
     render() {
 
@@ -59,6 +66,7 @@ import { FolderNoteContext } from "./FolderNoteContext"
             handleNoteSubmit: this.handleNoteSubmit,
             handleFolderSubmittoState: this.handleFolderSubmittoState,
             handleNoteSubmittoState: this.handleNoteSubmittoState,
+            deletNote: this.handleDeleteNote,
             // deleteNote: this.deleteNote,
             // handleNoteSubmit: this.handleNoteSubmit,
             // handleFolderSubmit: this.handleFolderSubmit
@@ -101,7 +109,7 @@ import { FolderNoteContext } from "./FolderNoteContext"
                             </div>
                             <Notes />
                         </Route>
-                        <Route path="/notes/:notesID" >
+                        <Route path="/notes/:notesID" component={Notes} >
                             <div style={folderDiv}>
                                 {folderitem}
                                 <Link to={`/addFolder`}>ADD A Folder</Link>

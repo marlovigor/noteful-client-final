@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { FolderNoteContext } from "../../FolderNoteContext"
 
+
+
+
 export default function Notes() {
     const value = useContext(FolderNoteContext);
     const { notesID } = useParams();
@@ -14,11 +17,21 @@ export default function Notes() {
             <div key={note.id} style={notediv1}>
                 <h3 style={notetitle}>{note.name}</h3>
                 <p style={notecontent}>{note.content}</p>
-                <button>delete</button>
+                <button onClick={() => DeleteNotes(note.id)}>delete</button>
             </div>
         )
-    }
+     }
     )
+    function DeleteNotes(noteid) {
+        fetch(`http://localhost:9090/notes/${noteid}`, {
+            method: 'DELETE',
+            headers: { 'content-type': 'application/json' }
+        })
+        .then(() => {
+            value.deletNote(noteid);
+          })
+        console.log()
+    }
     return (
         <div style={notediv}>
             {note}
