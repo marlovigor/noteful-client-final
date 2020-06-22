@@ -8,8 +8,8 @@ class AddNotes extends Component {
 
     state = {
         note: {
-            folderId: 0,
             id: Math.ceil(Math.random() * 10000000).toString(),
+            folderId: 0,
             modified: newDate,
             name: '',
             content: '',
