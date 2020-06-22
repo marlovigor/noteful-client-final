@@ -40,10 +40,6 @@ class AddNotes extends Component {
         }
       }
 
-
-
-
-
     handleNameChange = event => {
         const newNote = this.state.note
         newNote.name = event.target.value;

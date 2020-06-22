@@ -91,8 +91,9 @@ import { FolderNoteContext } from "./FolderNoteContext"
         return (
           
             <FolderNoteContext.Provider value={appValue}>
-            <div>
-            NOTE
+            <div style={titleDiv}>
+            
+            <h1 style={title}>Relax and Take Notes</h1>
           </div>
                 <div style={mainDiv}>
                     <Switch>
@@ -136,12 +137,20 @@ import { FolderNoteContext } from "./FolderNoteContext"
 }
 export default withRouter(App);
 
+const titleDiv={
+    width:"100%",
+    margin:'0 auto',
+}
+
+const title ={
+    color:'grey',
+    textAlign:'center'
+}
 
 
 const mainDiv = {
-    borderStyle: 'solid',
-    borderColor: 'red',
-    width: '80%',
+
+    width: '60%',
     margin: '0 auto'
 
 }
@@ -154,8 +163,10 @@ const folderDiv1 = {
 const folderDiv = {
     width: "33%",
     borderStyle: 'solid',
-    borderColor: 'green',
-    float: 'left'
+    borderColor: 'Blue',
+    float: 'left',
+    borderRadius:'30px',
+    padding:'15px'
 
 }
 

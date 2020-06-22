@@ -37,11 +37,11 @@ class AddFolder extends Component {
     }
 
     handleChange = event => {
+        const newFolders = this.state.folder
+        newFolders.name = event.target.value
         const folderName = event.target.value
         this.setState({
-            folder: {
-                name: event.target.value,
-            },
+            folder:newFolders,
             touched: true,
             errorMessage: "",
         },
@@ -70,8 +70,8 @@ class AddFolder extends Component {
     render() {
         // console.log(this.state.folder)
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div style={addFolderDiv}>
+                <form style={addFolder} onSubmit={this.handleSubmit}>
                     <input type="text" onChange={this.handleChange} ref={this.folderInput} />
                     {this.state.errorMessage && (
                         <p className="error-msg">{this.state.errorMessage}</p>
@@ -82,6 +82,16 @@ class AddFolder extends Component {
             </div>
         )
     }
+}
+
+
+const addFolderDiv={
+    width:'100%',
+
+}
+
+const addFolder ={
+    textAlign:'center'
 }
 
 export default withRouter(AddFolder)

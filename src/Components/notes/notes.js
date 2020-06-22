@@ -35,7 +35,9 @@ export default function Notes() {
     return (
         <div style={notediv}>
             {note}
-            <Link to={`/addnotes`}>AddNotes</Link>
+            <div>
+            <Link to={`/addnotes`}><button>AddNotes</button></Link>
+            </div>
         </div>
     )
 }
@@ -45,7 +47,9 @@ const notediv = {
     borderStyle: 'solid',
     borderColor: 'yellow',
     width: '55%',
-    float: 'right'
+    float: 'right',
+    borderRadius:'30px',
+    padding:'15px'
 
 
 
