@@ -2,10 +2,13 @@ import React from 'react';
 // import Folders from '../../Store'
 import { Switch, Route, Link, withRouter } from "react-router-dom"
 import Notes from './Components/notes/notes'
+import Folder from './Components/folders/Folder'
 // import {useParams} from "react-router-dom"
 import AddNotes from "./Components/notes/addNotes"
 import AddFolder from "./Components/folders/addFolder"
 import { FolderNoteContext } from "./FolderNoteContext"
+
+console.log(process.env)
 
 
  class App extends React.Component {
@@ -78,11 +81,12 @@ import { FolderNoteContext } from "./FolderNoteContext"
         //         </h3>
         //     </div>
         const folderitem = this.state.folders.map(item => (
-          <div key={item.id} style={folderDiv1}>
-              <h3 key={item.id}>
-                  <Link to={`/notes/${item.id}`}>{item.name}</Link>
-              </h3>
-          </div>
+            <Folder key={item.id} style={folderDiv1} name={item.name} id={item.id}/>
+        //   <div key={item.id} style={folderDiv1}>
+        //       <h3 key={item.id}>
+        //           <Link to={`/notes/${item.id}`}>{item.name}</Link>
+        //       </h3>
+        //   </div>
         ))
 
         // console.log(this.context)
