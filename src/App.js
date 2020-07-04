@@ -7,6 +7,7 @@ import Folder from './Components/folders/Folder'
 import AddNotes from "./Components/notes/addNotes"
 import AddFolder from "./Components/folders/addFolder"
 import { FolderNoteContext } from "./FolderNoteContext"
+import FolderError from "./Components/folders/FolderError"
 
 console.log(process.env)
 
@@ -103,20 +104,26 @@ console.log(process.env)
                     <Switch>
                         <Route exact path="/">
                             <div style={folderDiv}>
+                            <FolderError>
                                 {folderitem}
+                                </FolderError>
                                 <Link to={`/addFolder`}>ADD A Folder</Link>
                             </div>
                         </Route>
                         <Route exact path="/notes" >
                             <div style={folderDiv}>
+                            <FolderError>
                                 {folderitem}
+                                </FolderError>
                                 <Link to={`/addFolder`}>ADD A Folder</Link>
                             </div>
                             <Notes />
                         </Route>
                         <Route path="/notes/:notesID" component={Notes} >
                             <div style={folderDiv}>
+                            <FolderError>
                                 {folderitem}
+                                </FolderError>
                                 <Link to={`/addFolder`}>ADD A Folder</Link>
                             </div>
                             <Notes />
@@ -128,7 +135,9 @@ console.log(process.env)
                         </Route>
                         <Route path="/addnotes" Component={AddNotes}>
                             <div style={folderDiv}>
+                            <FolderError>
                                 {folderitem}
+                                </FolderError>
 
                             </div>
                             <AddNotes />

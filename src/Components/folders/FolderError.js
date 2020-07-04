@@ -1,17 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { thisTypeAnnotation } from '@babel/types';
+
 
 class FolderError extends React.Component{
 	state = {
 		hasError: false
 	}
 
-	componentDidCatch(hasError){
-        this.setState({
-            hasError:true
-        })
-    }
+	static getDerivedStateFromError(error) {
+		console.log('here')
+		// Update state so the next render will show the fallback UI.
+		return { hasError: true };
+	  }
 
 	render(){
 		return (

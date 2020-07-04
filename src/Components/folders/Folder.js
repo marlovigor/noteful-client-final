@@ -7,14 +7,15 @@ import FolderError from './FolderError'
 
 export default class Folder extends Component {
     render() {
+        // throw "new error";
         return (
-            <FolderError>
             <h3><Link to={`/notes/${this.props.id}`}>{this.props.name}</Link></h3>
-            </FolderError>
+          
         )
     }
 }
 
 Folder.propTypes={
-    name: PropTypes.string
+    name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
 }
