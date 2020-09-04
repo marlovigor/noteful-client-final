@@ -64,7 +64,6 @@ class AddFolder extends Component {
             .then(this.context.handleFolderSubmittoState(newFolders))
             .then(this.props.history.goBack())
 
-
     }
 
     render() {

@@ -17,16 +17,17 @@ console.log(process.env)
 
     state = {
         folders: [],
-        notes: []
+        notes: [],
+        currentUser:{}
     }
 
 
 
     componentDidMount() {
-        fetch('http://localhost:9090/folders')
+        fetch('http://localhost:8000/folders')
             .then(response => response.json())
             .then(data => this.setState({ folders: data }))
-        fetch('http://localhost:9090/notes')
+        fetch('http://localhost:8000/notes')
             .then(response => response.json())
             .then(data => this.setState({ notes: data }))
     }
@@ -60,8 +61,15 @@ console.log(process.env)
         });
       };
 
+      fetchCurrentuser(){
+        fetch('http://localhost:9090/notes')
+        .then(response => response.json())
+        .then(data => this.setState({ currentUser: data }))
+      }
+
 
     render() {
+        console.log(this.state.folders)
 
         const appValue = {
             folders: this.state.folders,
@@ -82,13 +90,14 @@ console.log(process.env)
         //         </h3>
         //     </div>
         const folderitem = this.state.folders.map(item => (
-            <Folder key={item.id} style={folderDiv1} name={item.name} id={item.id}/>
+            <Folder key={item.id} style={folderDiv1} name={item.title} id={item.id}/>
         //   <div key={item.id} style={folderDiv1}>
         //       <h3 key={item.id}>
         //           <Link to={`/notes/${item.id}`}>{item.name}</Link>
         //       </h3>
         //   </div>
         ))
+        console.log(folderitem)
 
         // console.log(this.context)
         // console.log(appValue.folders)
