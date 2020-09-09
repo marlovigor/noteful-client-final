@@ -9,7 +9,7 @@ class AddFolder extends Component {
     state = {
         folder: {
             id: uuidv4(),
-            name: '',
+            title: '',
         },
         touched: false,
         errorMessage: "",
@@ -38,7 +38,7 @@ class AddFolder extends Component {
 
     handleChange = event => {
         const newFolders = this.state.folder
-        newFolders.name = event.target.value
+        newFolders.title = event.target.value
         const folderName = event.target.value
         this.setState({
             folder:newFolders,
@@ -56,7 +56,7 @@ class AddFolder extends Component {
         //     name: this.state.name
         // }
         const newFolders = this.state.folder
-        fetch('http://localhost:9090/folders', {
+        fetch('http://localhost:8000/folders', {
             method: 'POST',
             body: JSON.stringify(this.state.folder),
             headers: { 'content-type': 'application/json' }
@@ -67,7 +67,7 @@ class AddFolder extends Component {
     }
 
     render() {
-        // console.log(this.state.folder)
+        console.log(JSON.stringify(this.state.folder))
         return (
             <div style={addFolderDiv}>
                 <form style={addFolder} onSubmit={this.handleSubmit}>

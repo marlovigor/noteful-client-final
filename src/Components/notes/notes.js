@@ -10,8 +10,10 @@ import { FolderNoteContext } from "../../FolderNoteContext"
 export default function Notes() {
     const value = useContext(FolderNoteContext);
     const { notesID } = useParams();
-    // console.log(value.notes)
-    const filteredNotes = value.notes.filter(note => note.folderId === notesID)
+    console.log(value.notes)
+    console.log(notesID)
+    const filteredNotes = value.notes.filter(note => note.folderid == notesID)
+    console.log(filteredNotes)
     const note = filteredNotes.map(note => {
         return (
             <div key={note.id} style={notediv1}>
@@ -22,8 +24,9 @@ export default function Notes() {
         )
      }
     )
+    console.log(note)
     function DeleteNotes(noteid) {
-        fetch(`http://localhost:9090/notes/${noteid}`, {
+        fetch(`http://localhost:8000/notes/${noteid}`, {
             method: 'DELETE',
             headers: { 'content-type': 'application/json' }
         })

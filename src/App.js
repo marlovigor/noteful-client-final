@@ -34,14 +34,14 @@ console.log(process.env)
 
     handleFolderSubmit = event => {
         console.log("im being called")
-        fetch('http://localhost:9090/folders')
+        fetch('http://localhost:8000/folders')
             .then(response => response.json())
             .then(data => this.setState({ folders: data }))
             // .then(this.props.history.goBack())
             
     }
     handleNoteSubmit=()=>{
-        fetch('http://localhost:9090/notes')
+        fetch('http://localhost:8000/notes')
             .then(response => response.json())
             .then(data => this.setState({ notes: data }))
     }
@@ -62,7 +62,7 @@ console.log(process.env)
       };
 
       fetchCurrentuser(){
-        fetch('http://localhost:9090/notes')
+        fetch('http://localhost:8000/notes')
         .then(response => response.json())
         .then(data => this.setState({ currentUser: data }))
       }

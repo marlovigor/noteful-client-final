@@ -9,7 +9,7 @@ class AddNotes extends Component {
     state = {
         note: {
             id: Math.ceil(Math.random() * 10000000).toString(),
-            folderId: 0,
+            folderid: 0,
             modified: newDate,
             name: '',
             content: '',
@@ -67,7 +67,7 @@ class AddNotes extends Component {
 
     folderSelection = (e) => {
         const newNote = this.state.note
-        newNote.folderId = e.target.value
+        newNote.folderid = e.target.value
         this.setState({ note: newNote });
         console.log(newNote)
     }
@@ -77,7 +77,7 @@ class AddNotes extends Component {
         const newNote = this.state.note
         console.log(newNote)
 
-        fetch('http://localhost:9090/notes', {
+        fetch('http://localhost:8000/notes', {
             method: 'POST',
             body: JSON.stringify(newNote),
             headers: { 'content-type': 'application/json' }
@@ -90,7 +90,7 @@ class AddNotes extends Component {
 
         const folderoptions = this.context.folders.map(option => {
             return (
-                <option key={option.id} value={option.id}>{option.name}</option>
+                <option key={option.id} value={option.id}>{option.title}</option>
             )
         })
         // console.log(folderoptions)
